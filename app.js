@@ -21,14 +21,6 @@ class Person {
 var John = new Person("John", "Walker", 50, "Alabama");
 people.push(John);
 
-function popUp(id) {
-        var newPerson = people.slice(id, 1);
-        //editName = newPerson[0].name;
-        //editSurname = newPerson[0].surname;
-       // editCity = newPerson[0].city;
-        console.log(newPerson);  
-    }
-
 
 app.get("/", (req, res) => {
     res.render("home", {
