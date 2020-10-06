@@ -1,0 +1,139 @@
+body {
+    background-color: #fafafa;
+    color:grey;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+}
+
+h1 {
+    margin-top: 2rem;
+    font-weight: 600;
+    font-size: 45px;
+    letter-spacing: 0px;
+    line-height: 3rem;
+    text-align: center;
+}
+
+
+footer {
+    margin-top: 5rem;
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0px;
+    line-height: 1.6em;
+    text-align: center;
+}
+
+
+header {
+    margin-bottom: 5rem;
+}
+
+a {
+    margin-right: 1rem;
+}
+
+.first-container {
+    display: inline-flex;
+    width: 15rem;
+    margin-left: 2rem;
+}
+
+.second-container {
+    display: inline-flex;
+    width: 30rem;
+    margin-left: 2rem;
+}
+
+.my-form {
+    width: 45%;
+    display: inline;
+    margin-left: 3%;
+}
+
+.my-button{
+    display: table;
+    width: 45%;
+    margin: auto;
+}
+
+.first-table{
+    margin: 2rem 0 0 2rem;
+    width: 45rem;
+}
+
+.table-head {
+    background-color: #0a508c;
+}
+
+.fouth-table {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 40rem;
+    top: 20rem;
+    width: 30%; 
+    height: 20%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.8); 
+    animation-name: animatetop;
+    animation-duration: 0.4s
+    
+}
+
+.fouth-table.modal-opened{
+    background: rgb(0, 0, 0);
+    opacity: 0.5;
+    filter: Alpha(Opacity=50);
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 20rem; opacity: 1}
+  }
+
+.my-table-form {
+    width: 30%;
+    display: inline-table;
+    margin: 1rem 1% 1rem 1%;
+}
+
+.my-save-button {
+    width: 60%;
+    float: right;
+    margin: 0 3%;
+}
+
+.label-check{
+    margin-left: 1rem;
+}
+
+.my-check-form{
+    width: 30%;
+    display: inline-table;
+    margin-left: 2%;
+}
+
+.edit-name{
+    display: inline;
+    margin-left: 2%;
+}
+.editname-div{
+    background-color: #000407;
+    color:  rgb(139, 127, 127);;
+}
+
+.close-cross{
+    color: white;
+    text-shadow: 0 1px 0 rgb(53, 48, 48);
+}
+
+.close-cross:hover {
+    color: rgb(156, 138, 138);
+}
+
+.my-hiden {
+    display: none;
+}
+

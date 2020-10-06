@@ -1,0 +1,160 @@
+<%- include("header") %>
+
+<div class="first-forms">
+    <div class="first-container">
+        <form action="/" method="post">
+            <div class="form-group">
+                <input oninput="updateName1(this.value)" type="text" class="form-control" id="Name" placeholder="Name"
+                    name="name">
+            </div>
+            <div class="form-group">
+                <input oninput="updateSurname1(this.value)" type="text" class="form-control" id="Surname"
+                    placeholder="Surname" name="surname">
+            </div>
+            <div class="form-group">
+                <input oninput="updateAge1(this.value)" type="number" class="form-control" id="Age" placeholder="Age"
+                    name="age">
+            </div>
+            <div class="form-group">
+                <input oninput="updateCity1(this.value)" type="text" class="form-control" id="City" placeholder="City"
+                    name="city">
+            </div>
+            <button type="submit" class="btn btn-block btn-primary">Add</button>
+        </form>
+    </div>
+
+    <div class="second-container">
+        <form action="/" method="post">
+            <div class="form-group">
+                <input oninput="updateName(this.value)" type="text" class="my-form form-control" id="Name1"
+                    placeholder="Name" name="name">
+                <input oninput="updateAge(this.value)" type="number" class="my-form form-control" id="Age1"
+                    placeholder="Age" name="age">
+            </div>
+            <div class="form-group">
+                <input oninput="updateSurname(this.value)" type="text" class="my-form form-control" id="Surname1"
+                    placeholder="Surname" name="surname">
+                <input oninput="updateCity(this.value)" type="text" class="my-form form-control" id="City1"
+                    placeholder="City" name="city">
+            </div>
+            <button type="submit" class="btn my-button btn-primary">Add</button>
+        </form>
+    </div>
+</div>
+
+
+<table id="tablePreview" class="table first-table">
+    <thead class="table-head">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Country</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% people.forEach(person => { %>
+        <form action="/delete" method="post">
+            <tr>
+                <td><%= person.name %></td>
+                <td><%= person.surname %></td>
+                <td><%= person.age %></td>
+                <td><%= person.city %></td>
+                <td> <button onclick=" popUp('<%=person.name%>', '<%=person.surname%>', '<%=person.city%>','<%= people.indexOf(person) %>')"
+                        type="button" class="btn btn-primary">Edit</button>
+                        <button name="id" value=<%= people.indexOf(person) %> type="submit" class="btn btn-primary">delete</button>
+            </tr>
+        </form>
+        <% }); %>
+
+    </tbody>
+</table>
+
+
+<div class="fouth-table" id="myModal">
+    <form action="/save" method="post">
+        <div class="editname-div">
+            <h4 class="edit-name">Edit name</h4>
+            <button type="button" class="close close-cross" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div>
+            <input type="text" class="my-table-form form-control" name="editName" id="editName" value="">
+            <input type="text" class="my-table-form form-control" name="editSurname"id="editSurname" value="">
+            <input type="text" class="my-table-form form-control" name="editCity" id="editCity" value="">
+            <input type="text" class="my-table-form form-control my-hiden" name="editId" id="editId" value="">
+        </div>
+        <div>
+            <div class="my-check-form">
+                <input type="checkbox" id="agree" name="agree">
+                <label class="label-check" for="agree"> I totatlly agree</label>
+            </div>
+            <div class="my-save-button">
+                <button type="submit" class="btn btn-block btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+    function updateName1(ish) {
+        document.getElementById("Name1").value = ish;
+    }
+
+    function updateName(ish) {
+        document.getElementById("Name").value = ish;
+    }
+
+    function updateSurname1(ish) {
+        document.getElementById("Surname1").value = ish;
+    }
+
+    function updateSurname(ish) {
+        document.getElementById("Surname").value = ish;
+    }
+
+    function updateAge1(ish) {
+        document.getElementById("Age1").value = ish;
+    }
+
+    function updateAge(ish) {
+        document.getElementById("Age").value = ish;
+    }
+
+    function updateCity1(ish) {
+        document.getElementById("City1").value = ish;
+    }
+
+    function updateCity(ish) {
+        document.getElementById("City").value = ish;
+    }
+
+    var modal = document.getElementById("myModal");
+
+
+
+    function popUp(name, surname, city, id) {
+        modal.style.display = "block";
+        document.getElementById("editName").value = name;
+        document.getElementById("editSurname").value = surname;
+        document.getElementById("editCity").value = city;
+        document.getElementById("editId").value = id;
+    }
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+<%- include("footer") %>
